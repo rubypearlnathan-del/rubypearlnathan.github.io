@@ -751,17 +751,13 @@
     }
     function sendViaGmail() {
       var sub = encodeURIComponent(document.getElementById('inq-subject').value || 'Instructional Design Contract Inquiry');
-      var body = encodeURIComponent(document.getElementById('inq-body').value || 'Hi Ruby,
-
-I reviewed your portfolio and would like to discuss a potential project.');
+      var body = encodeURIComponent(document.getElementById('inq-body').value || 'Hi Ruby, I reviewed your portfolio and would like to discuss a potential project.');
       var gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=rubypearl.nathan@gmail.com&su=' + sub + '&body=' + body;
       window.open(gmailUrl, '_blank');
     }
     function sendViaMailto() {
       var sub = encodeURIComponent(document.getElementById('inq-subject').value || 'Instructional Design Contract Inquiry');
-      var body = encodeURIComponent(document.getElementById('inq-body').value || 'Hi Ruby,
-
-I reviewed your portfolio and would like to discuss a potential project.');
+      var body = encodeURIComponent(document.getElementById('inq-body').value || 'Hi Ruby, I reviewed your portfolio and would like to discuss a potential project.');
       window.location.href = 'mailto:rubypearl.nathan@gmail.com?subject=' + sub + '&body=' + body;
     }
     window.addEventListener('keydown', function(e) {
