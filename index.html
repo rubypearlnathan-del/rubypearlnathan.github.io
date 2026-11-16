@@ -410,35 +410,47 @@
   <!-- INTERACTIVE MODALS                                                        -->
   <!-- ========================================================================= -->
 
-  <!-- MODAL CONTACT: Interactive Contract Inquiry Drawer (Replaces broken mailto:) -->
-  <div id="modal-contact" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
-    <div class="bg-white rounded-2xl max-w-xl w-full shadow-2xl border border-slate-200 p-6 md:p-8 relative">
-      <button onclick="closeModal('modal-contact')" class="float-right bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-full w-9 h-9 font-bold flex items-center justify-center">✕</button>
-      <span class="text-xs font-bold uppercase px-2.5 py-1 bg-blue-100 text-blue-800 rounded">Direct Contract Inquiry</span>
-      <h2 class="text-2xl font-extrabold text-slate-900 mt-3">Partner with Ruby Pearl Nathan</h2>
-      <p class="mt-2 text-slate-600 text-sm">Available for US &amp; global 1099 / Corp-to-Corp / W-8BEN independent contracting roles. Reach out directly using any option below:</p>
-
-      <!-- Direct Contact Details with Copy Button -->
-      <div class="mt-5 p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
-        <div class="flex items-center justify-between">
-          <div>
-            <p class="text-xs text-slate-400 font-semibold uppercase">Direct Email</p>
-            <p class="font-bold text-slate-900" id="ruby-email">rubypearl.nathan@gmail.com</p>
-          </div>
-          <button onclick="copyEmail()" id="copy-btn" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-3 py-2 rounded-lg transition cursor-pointer">
-            Copy Email
-          </button>
-        </div>
-        <div class="border-t border-slate-200 pt-2 flex items-center justify-between">
-          <div>
-            <p class="text-xs text-slate-400 font-semibold uppercase">Phone / WhatsApp</p>
-            <p class="font-bold text-slate-900">+91-9819433214</p>
-          </div>
-          <a href="https://wa.me/919819433214?text=Hi%20Ruby,%20I%20viewed%20your%20Instructional%20Design%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-3 py-2 rounded-lg transition">
-            Message on WhatsApp ↗
-          </a>
-        </div>
+  <!-- MODAL ARTICULATE 1: Embedded Live Articulate 360 Course Player -->
+<div id="modal-articulate" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-3 md:p-6 overflow-y-auto">
+  <div class="bg-white rounded-2xl max-w-6xl w-full h-[90vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden">
+    <div class="px-6 py-4 bg-slate-900 text-white flex flex-wrap items-center justify-between gap-4 border-b border-slate-800">
+      <div>
+        <span class="text-xs font-bold uppercase px-2.5 py-1 bg-blue-600 text-white rounded">Articulate 360 Live Build</span>
+        <h2 class="text-base md:text-lg font-bold text-white truncate">Interactive eLearning Course Preview</h2>
       </div>
+      <div class="flex items-center gap-3">
+        <a href="k12-sample/index.html" target="_blank" rel="noopener" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-3.5 py-2 rounded-lg transition">
+          Open in New Tab (Fullscreen) ↗
+        </a>
+        <button onclick="closeModal('modal-articulate')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-full w-8 h-8 flex items-center justify-center">✕</button>
+      </div>
+    </div>
+    <div class="flex-1 w-full bg-slate-100 relative">
+      <iframe id="articulate-iframe" src="about:blank" data-src="k12-sample/index.html" class="w-full h-full border-0"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL ARTICULATE 2: Embedded Live Articulate 360 Course Player -->
+<div id="modal-articulate-2" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-3 md:p-6 overflow-y-auto">
+  <div class="bg-white rounded-2xl max-w-6xl w-full h-[90vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden">
+    <div class="px-6 py-4 bg-slate-900 text-white flex flex-wrap items-center justify-between gap-4 border-b border-slate-800">
+      <div>
+        <span class="text-xs font-bold uppercase px-2.5 py-1 bg-indigo-600 text-white rounded">Articulate 360 Live Build</span>
+        <h2 class="text-base md:text-lg font-bold text-white truncate">Interactive eLearning Course Preview</h2>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="microlearningrise-sample/index.html" target="_blank" rel="noopener" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-3.5 py-2 rounded-lg transition">
+          Open in New Tab (Fullscreen) ↗
+        </a>
+        <button onclick="closeModal('modal-articulate-2')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-full w-8 h-8 flex items-center justify-center">✕</button>
+      </div>
+    </div>
+    <div class="flex-1 w-full bg-slate-100 relative">
+      <iframe id="articulate-iframe-2" src="about:blank" data-src="microlearningrise-sample/index.html" class="w-full h-full border-0"></iframe>
+    </div>
+  </div>
+</div>
 
       <!-- Quick Project Message Composer -->
       <div class="mt-5 space-y-3 text-sm">
