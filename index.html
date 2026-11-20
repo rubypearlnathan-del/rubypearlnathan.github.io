@@ -135,45 +135,39 @@
       Click any project card below to open the live self-hosted Articulate 360 course or interactive case study directly in your browser.
     </p>
 
-    <!-- Featured Live Articulate 360 Course Showcase 1 -->
+    <!-- Self-Hosted Sample Preview 1: K-12 Rise Sample -->
     <div class="mt-8 bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 rounded-2xl p-6 md:p-8 text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
       <div class="max-w-2xl">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase">
-          <span>⚡ Featured Interactive Course • Articulate 360</span>
+          <span>Interactive Course Architecture • K–12 Sample</span>
         </div>
         <h3 class="text-2xl font-extrabold tracking-tight text-white mt-3">K–12 Rise Sample</h3>
         <p class="mt-2 text-sm text-slate-300 leading-relaxed">
-          Experience Ruby's end-to-end course authoring directly in your browser. Features structured learning pathways, interactive knowledge checks, responsive layout design, and modern instructional pacing.
+          Structured K–12 learning pathway featuring scaffolded lessons, interactive knowledge checks, responsive layouts, and standards-aligned instructional pacing.
         </p>
       </div>
       <div class="flex flex-wrap items-center gap-3 shrink-0">
-        <button onclick="openModal('modal-articulate')" class="bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs md:text-sm px-5 py-3 rounded-xl shadow-lg transition cursor-pointer">
-          ▶ Preview Inside Page
+        <button onclick="openModal('modal-k12-preview')" class="bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs md:text-sm px-5 py-3 rounded-xl shadow-lg transition cursor-pointer">
+          View Course Breakdown
         </button>
-        <a href="k12-sample/index.html" target="_blank" rel="noopener" class="bg-white/10 hover:bg-white/20 text-white font-semibold text-xs md:text-sm px-5 py-3 rounded-xl border border-white/20 transition">
-          Launch Fullscreen Course ↗
-        </a>
       </div>
     </div>
 
-    <!-- Featured Live Articulate 360 Course Showcase 2 -->
+    <!-- Self-Hosted Sample Preview 2: Micro Learning Rise Sample -->
     <div class="mt-6 bg-gradient-to-r from-indigo-950 via-slate-900 to-blue-950 rounded-2xl p-6 md:p-8 text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
       <div class="max-w-2xl">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-bold uppercase">
-          <span>⚡ Featured Interactive Course • Articulate 360 (Sample 2)</span>
+          <span>Microlearning Architecture • Sample 2</span>
         </div>
         <h3 class="text-2xl font-extrabold tracking-tight text-white mt-3">Micro Learning Rise Sample</h3>
         <p class="mt-2 text-sm text-slate-300 leading-relaxed">
-          Explore another of Ruby's responsive course builds featuring structured content flow, dynamic assessments, and modern instructional design elements.
+          Focused 60-second microlearning showcase built around bite-sized blocks, active recall prompts, and rapid concept reinforcement.
         </p>
       </div>
       <div class="flex flex-wrap items-center gap-3 shrink-0">
-        <button onclick="openModal('modal-articulate-2')" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs md:text-sm px-5 py-3 rounded-xl shadow-lg transition cursor-pointer">
-          ▶ Preview Inside Page
+        <button onclick="openModal('modal-micro-preview')" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs md:text-sm px-5 py-3 rounded-xl shadow-lg transition cursor-pointer">
+          View Course Breakdown
         </button>
-        <a href="microlearningrise-sample/index.html" target="_blank" rel="noopener" class="bg-white/10 hover:bg-white/20 text-white font-semibold text-xs md:text-sm px-5 py-3 rounded-xl border border-white/20 transition">
-          Launch Fullscreen Course ↗
-        </a>
       </div>
     </div>
 
@@ -305,6 +299,40 @@
     </div>
   </div>
 
+  <!-- MODAL: K-12 Sample Breakdown -->
+  <div id="modal-k12-preview" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 md:p-8">
+      <button onclick="closeModal('modal-k12-preview')" class="float-right bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-full w-8 h-8 flex items-center justify-center cursor-pointer">✕</button>
+      <span class="text-xs font-bold uppercase px-2.5 py-1 bg-blue-100 text-blue-800 rounded">K–12 Instructional Design</span>
+      <h2 class="text-2xl font-extrabold text-slate-900 mt-3">K–12 Rise Sample — Design &amp; Structure</h2>
+      <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+        Designed to demonstrate standards-aligned K–12 lesson flow, clear learning objectives, progressive scaffolding, and formative checks for younger learners.
+      </p>
+      <ul class="mt-4 space-y-2 text-sm text-slate-700 list-disc list-inside">
+        <li>Clear chunking of core concepts with visual anchors and guided checkpoints.</li>
+        <li>Responsive layout structured for classroom tablets, laptops, and Chromebooks.</li>
+        <li>Focused on measurable mastery and student engagement without cognitive overload.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODAL: Microlearning Sample Breakdown -->
+  <div id="modal-micro-preview" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 md:p-8">
+      <button onclick="closeModal('modal-micro-preview')" class="float-right bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-full w-8 h-8 flex items-center justify-center cursor-pointer">✕</button>
+      <span class="text-xs font-bold uppercase px-2.5 py-1 bg-indigo-100 text-indigo-800 rounded">60-Second Microlearning</span>
+      <h2 class="text-2xl font-extrabold text-slate-900 mt-3">Micro Learning Rise Sample — Design &amp; Structure</h2>
+      <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+        Built around concise, single-objective micro-modules that deliver practical takeaways quickly for busy learners.
+      </p>
+      <ul class="mt-4 space-y-2 text-sm text-slate-700 list-disc list-inside">
+        <li>Tightly scoped single-concept flow designed for rapid comprehension.</li>
+        <li>Interactive knowledge checks reinforcing key definitions and takeaways.</li>
+        <li>Adaptable structure for onboarding, refresher training, or just-in-time support.</li>
+      </ul>
+    </div>
+  </div>
+  
   <!-- MODAL 1: 3D Branched Scenario -->
   <div id="modal-1" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
     <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 md:p-8">
