@@ -299,39 +299,235 @@
     </div>
   </div>
 
-  <!-- MODAL: K-12 Sample Breakdown -->
-  <div id="modal-k12-preview" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
-    <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 md:p-8">
-      <button onclick="closeModal('modal-k12-preview')" class="float-right bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-full w-8 h-8 flex items-center justify-center cursor-pointer">✕</button>
-      <span class="text-xs font-bold uppercase px-2.5 py-1 bg-blue-100 text-blue-800 rounded">K–12 Instructional Design</span>
-      <h2 class="text-2xl font-extrabold text-slate-900 mt-3">K–12 Rise Sample — Design &amp; Structure</h2>
-      <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-        Designed to demonstrate standards-aligned K–12 lesson flow, clear learning objectives, progressive scaffolding, and formative checks for younger learners.
-      </p>
-      <ul class="mt-4 space-y-2 text-sm text-slate-700 list-disc list-inside">
-        <li>Clear chunking of core concepts with visual anchors and guided checkpoints.</li>
-        <li>Responsive layout structured for classroom tablets, laptops, and Chromebooks.</li>
-        <li>Focused on measurable mastery and student engagement without cognitive overload.</li>
-      </ul>
+  <!-- MODAL: Interactive K-12 Sample Player -->
+  <div id="modal-k12-preview" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-3 md:p-6 overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden">
+      <!-- Top Course Header -->
+      <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase px-2.5 py-0.5 bg-blue-600 text-white rounded">Interactive Course Demo • K–12 Science</span>
+          <h2 class="text-base md:text-lg font-bold text-white mt-1">Forces, Motion &amp; Balanced Systems (Grade 8)</h2>
+        </div>
+        <button onclick="closeModal('modal-k12-preview')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-full w-8 h-8 flex items-center justify-center cursor-pointer shrink-0">✕</button>
+      </div>
+
+      <!-- Lesson Navigation Bar -->
+      <div class="bg-slate-100 px-6 py-3 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2 text-xs font-semibold">
+        <div class="flex flex-wrap gap-2">
+          <button onclick="switchCourseTab('k12', 1)" id="k12-tab-1" class="px-3 py-1.5 rounded-lg bg-blue-600 text-white cursor-pointer">1. Core Concept</button>
+          <button onclick="switchCourseTab('k12', 2)" id="k12-tab-2" class="px-3 py-1.5 rounded-lg bg-white text-slate-700 border border-slate-300 cursor-pointer">2. Interactive Cards</button>
+          <button onclick="switchCourseTab('k12', 3)" id="k12-tab-3" class="px-3 py-1.5 rounded-lg bg-white text-slate-700 border border-slate-300 cursor-pointer">3. Knowledge Check</button>
+        </div>
+        <span id="k12-progress" class="text-slate-500">Module 1 of 3</span>
+      </div>
+
+      <!-- Lesson Content Body -->
+      <div class="p-6 md:p-8 overflow-y-auto flex-1 text-slate-700 space-y-5">
+        <!-- Step 1 -->
+        <div id="k12-step-1" class="space-y-4">
+          <div class="p-4 rounded-xl bg-blue-50 border-l-4 border-blue-600 text-sm text-slate-800">
+            <strong>Learning Objective:</strong> Analyze how balanced and unbalanced forces affect an object's motion using real-world evidence (NGSS MS-PS2-2).
+          </div>
+          <p class="text-sm leading-relaxed">
+            Every object around you experiences multiple forces at once—gravity pulling downward, surfaces pushing upward, and friction resisting motion. When all opposing forces are equal in magnitude, the <strong>net force is zero</strong>, and the object's motion does not change.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <div class="text-xs font-bold uppercase text-blue-600">Balanced Forces (Net = 0 N)</div>
+              <p class="text-sm mt-1">A book resting on a lab table or a satellite cruising at constant speed in a straight path.</p>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <div class="text-xs font-bold uppercase text-amber-600">Unbalanced Forces (Net ≠ 0 N)</div>
+              <p class="text-sm mt-1">A soccer ball accelerating after a kick or a parachute slowing a skydiver's descent.</p>
+            </div>
+          </div>
+          <div class="pt-2 flex justify-end">
+            <button onclick="switchCourseTab('k12', 2)" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg cursor-pointer">Next: Interactive Flip Cards →</button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div id="k12-step-2" class="hidden space-y-4">
+          <p class="text-sm text-slate-600">Click each scenario card below to reveal the underlying force interaction:</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div onclick="this.querySelector('.reveal').classList.toggle('hidden')" class="cursor-pointer p-5 rounded-xl border-2 border-blue-200 hover:border-blue-500 bg-white shadow-sm transition">
+              <div class="text-xs font-bold uppercase text-blue-600">Scenario A • Click to Flip</div>
+              <h4 class="font-bold text-slate-900 mt-1">Tug-of-War Rope Held Still</h4>
+              <p class="reveal hidden mt-3 pt-3 border-t border-slate-100 text-xs text-slate-700 bg-blue-50 p-3 rounded-lg">
+                <strong>Balanced:</strong> Both teams pull with 450 N in opposite directions. Net force = 0 N, so acceleration is zero.
+              </p>
+            </div>
+            <div onclick="this.querySelector('.reveal').classList.toggle('hidden')" class="cursor-pointer p-5 rounded-xl border-2 border-indigo-200 hover:border-indigo-500 bg-white shadow-sm transition">
+              <div class="text-xs font-bold uppercase text-indigo-600">Scenario B • Click to Flip</div>
+              <h4 class="font-bold text-slate-900 mt-1">Braking Bicycle on Wet Asphalt</h4>
+              <p class="reveal hidden mt-3 pt-3 border-t border-slate-100 text-xs text-slate-700 bg-indigo-50 p-3 rounded-lg">
+                <strong>Unbalanced:</strong> Friction acts opposite to forward motion, creating negative acceleration until velocity reaches 0 m/s.
+              </p>
+            </div>
+          </div>
+          <div class="pt-2 flex justify-between">
+            <button onclick="switchCourseTab('k12', 1)" class="text-slate-600 text-xs font-bold px-4 py-2 rounded-lg border border-slate-300 cursor-pointer">← Previous</button>
+            <button onclick="switchCourseTab('k12', 3)" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg cursor-pointer">Next: Knowledge Check →</button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div id="k12-step-3" class="hidden space-y-4">
+          <div class="text-xs font-bold uppercase text-blue-600">Formative Knowledge Check</div>
+          <h4 class="font-bold text-slate-900 text-base">A cargo drone hovers completely stationary 20 meters above the ground. Which statement accurately describes the forces acting on it?</h4>
+          <div class="space-y-2 text-sm">
+            <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
+              <input type="radio" name="k12-quiz" value="wrong1">
+              <span>No forces are acting on the drone while it hovers.</span>
+            </label>
+            <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
+              <input type="radio" name="k12-quiz" value="correct">
+              <span>Upward rotor lift equals downward gravitational force, creating a net force of zero.</span>
+            </label>
+            <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
+              <input type="radio" name="k12-quiz" value="wrong2">
+              <span>Upward rotor lift is greater than gravity to keep it in the air.</span>
+            </label>
+          </div>
+          <button onclick="gradeCourseQuiz('k12')" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-5 py-2.5 rounded-lg cursor-pointer">Submit Answer</button>
+          <div id="k12-feedback" class="hidden p-4 rounded-xl text-sm"></div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- MODAL: Microlearning Sample Breakdown -->
-  <div id="modal-micro-preview" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
-    <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 md:p-8">
-      <button onclick="closeModal('modal-micro-preview')" class="float-right bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-full w-8 h-8 flex items-center justify-center cursor-pointer">✕</button>
-      <span class="text-xs font-bold uppercase px-2.5 py-1 bg-indigo-100 text-indigo-800 rounded">60-Second Microlearning</span>
-      <h2 class="text-2xl font-extrabold text-slate-900 mt-3">Micro Learning Rise Sample — Design &amp; Structure</h2>
-      <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-        Built around concise, single-objective micro-modules that deliver practical takeaways quickly for busy learners.
-      </p>
-      <ul class="mt-4 space-y-2 text-sm text-slate-700 list-disc list-inside">
-        <li>Tightly scoped single-concept flow designed for rapid comprehension.</li>
-        <li>Interactive knowledge checks reinforcing key definitions and takeaways.</li>
-        <li>Adaptable structure for onboarding, refresher training, or just-in-time support.</li>
-      </ul>
+  <!-- MODAL: Interactive Microlearning Sample Player -->
+  <div id="modal-micro-preview" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-3 md:p-6 overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden">
+      <!-- Top Course Header -->
+      <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase px-2.5 py-0.5 bg-indigo-600 text-white rounded">60-Second Microlearning • Interactive Block Showcase</span>
+          <h2 class="text-base md:text-lg font-bold text-white mt-1">Spotting Phishing Red Flags in 60 Seconds</h2>
+        </div>
+        <button onclick="closeModal('modal-micro-preview')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-full w-8 h-8 flex items-center justify-center cursor-pointer shrink-0">✕</button>
+      </div>
+
+      <!-- Lesson Navigation Bar -->
+      <div class="bg-slate-100 px-6 py-3 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2 text-xs font-semibold">
+        <div class="flex flex-wrap gap-2">
+          <button onclick="switchCourseTab('micro', 1)" id="micro-tab-1" class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white cursor-pointer">1. The 3-Second Scan</button>
+          <button onclick="switchCourseTab('micro', 2)" id="micro-tab-2" class="px-3 py-1.5 rounded-lg bg-white text-slate-700 border border-slate-300 cursor-pointer">2. Inspect the Email</button>
+          <button onclick="switchCourseTab('micro', 3)" id="micro-tab-3" class="px-3 py-1.5 rounded-lg bg-white text-slate-700 border border-slate-300 cursor-pointer">3. Rapid Decision Check</button>
+        </div>
+        <span id="micro-progress" class="text-slate-500">Step 1 of 3</span>
+      </div>
+
+      <!-- Lesson Content Body -->
+      <div class="p-6 md:p-8 overflow-y-auto flex-1 text-slate-700 space-y-5">
+        <!-- Step 1 -->
+        <div id="micro-step-1" class="space-y-4">
+          <div class="p-4 rounded-xl bg-indigo-50 border-l-4 border-indigo-600 text-sm text-slate-800">
+            <strong>Micro-Objective:</strong> Identify domain spoofing and artificial urgency before clicking external links.
+          </div>
+          <p class="text-sm leading-relaxed">
+            Modern phishing attacks bypass spam filters by mimicking routine internal notifications (payroll updates, shared documents, or password resets). Use the <strong>S.L.U.</strong> rule before acting:
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <div class="font-bold text-indigo-700 text-sm">1. Sender Domain</div>
+              <p class="text-xs mt-1 text-slate-600">Check characters after the <code>@</code> symbol for lookalike typos (e.g., <code>@micros0ft-support.com</code>).</p>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <div class="font-bold text-indigo-700 text-sm">2. Link Destination</div>
+              <p class="text-xs mt-1 text-slate-600">Hover over buttons without clicking to inspect the true destination URL.</p>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <div class="font-bold text-indigo-700 text-sm">3. Urgency Trigger</div>
+              <p class="text-xs mt-1 text-slate-600">Be skeptical of 2-hour deadlines threatening account suspension.</p>
+            </div>
+          </div>
+          <div class="pt-2 flex justify-end">
+            <button onclick="switchCourseTab('micro', 2)" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg cursor-pointer">Next: Interactive Email Inspection →</button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div id="micro-step-2" class="hidden space-y-4">
+          <p class="text-sm text-slate-600">Click on the highlighted clues inside this sample message to inspect why it is suspicious:</p>
+          <div class="p-5 rounded-xl border border-slate-300 bg-slate-50 space-y-3 text-sm">
+            <div onclick="document.getElementById('clue-box').innerText='Red Flag #1: The display name says IT Helpdesk, but the actual domain uses a zero (0) instead of an o.'; document.getElementById('clue-box').classList.remove('hidden');" class="cursor-pointer p-2 rounded bg-amber-100/80 border border-amber-300 hover:bg-amber-200 transition">
+              <strong>From:</strong> IT Security Helpdesk &lt;alerts@c0mpany-portal.com&gt; <span class="text-xs font-bold text-amber-800 ml-2">[Click to Inspect]</span>
+            </div>
+            <div onclick="document.getElementById('clue-box').innerText='Red Flag #2: Artificial urgency pressures employees to bypass verification protocols.'; document.getElementById('clue-box').classList.remove('hidden');" class="cursor-pointer p-2 rounded bg-amber-100/80 border border-amber-300 hover:bg-amber-200 transition">
+              <strong>Subject:</strong> URGENT: Your VPN access expires in 45 minutes <span class="text-xs font-bold text-amber-800 ml-2">[Click to Inspect]</span>
+            </div>
+            <div id="clue-box" class="hidden p-3 rounded-lg bg-slate-900 text-white text-xs font-medium"></div>
+          </div>
+          <div class="pt-2 flex justify-between">
+            <button onclick="switchCourseTab('micro', 1)" class="text-slate-600 text-xs font-bold px-4 py-2 rounded-lg border border-slate-300 cursor-pointer">← Previous</button>
+            <button onclick="switchCourseTab('micro', 3)" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg cursor-pointer">Next: Rapid Decision Check →</button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div id="micro-step-3" class="hidden space-y-4">
+          <div class="text-xs font-bold uppercase text-indigo-600">Applied Decision Check</div>
+          <h4 class="font-bold text-slate-900 text-base">You receive an unexpected password-reset alert from a vendor portal you haven't logged into today. What is the safest action?</h4>
+          <div class="space-y-2 text-sm">
+            <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
+              <input type="radio" name="micro-quiz" value="wrong1">
+              <span>Click "Cancel Reset" inside the email immediately.</span>
+            </label>
+            <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
+              <input type="radio" name="micro-quiz" value="correct">
+              <span>Ignore the email link, open a clean browser tab, and check your account via your saved bookmark.</span>
+            </label>
+            <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
+              <input type="radio" name="micro-quiz" value="wrong2">
+              <span>Reply to the sender asking if the email is legitimate.</span>
+            </label>
+          </div>
+          <button onclick="gradeCourseQuiz('micro')" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-5 py-2.5 rounded-lg cursor-pointer">Verify Choice</button>
+          <div id="micro-feedback" class="hidden p-4 rounded-xl text-sm"></div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <script>
+    function switchCourseTab(prefix, step) {
+      const activeColor = prefix === 'k12' ? 'bg-blue-600' : 'bg-indigo-600';
+      for (let i = 1; i <= 3; i++) {
+        const panel = document.getElementById(`${prefix}-step-${i}`);
+        const tab = document.getElementById(`${prefix}-tab-${i}`);
+        if (panel) panel.classList.toggle('hidden', i !== step);
+        if (tab) {
+          tab.className = i === step
+            ? `px-3 py-1.5 rounded-lg ${activeColor} text-white cursor-pointer`
+            : 'px-3 py-1.5 rounded-lg bg-white text-slate-700 border border-slate-300 cursor-pointer';
+        }
+      }
+      const prog = document.getElementById(`${prefix}-progress`);
+      if (prog) prog.innerText = `${prefix === 'k12' ? 'Module' : 'Step'} ${step} of 3`;
+    }
+
+    function gradeCourseQuiz(prefix) {
+      const selected = document.querySelector(`input[name="${prefix}-quiz"]:checked`);
+      const box = document.getElementById(`${prefix}-feedback`);
+      if (!box) return;
+      box.classList.remove('hidden');
+      if (!selected) {
+        box.className = 'p-4 rounded-xl text-sm bg-amber-50 border border-amber-300 text-amber-900';
+        box.innerText = 'Please select an answer option first.';
+        return;
+      }
+      if (selected.value === 'correct') {
+        box.className = 'p-4 rounded-xl text-sm bg-emerald-50 border border-emerald-300 text-emerald-900';
+        box.innerHTML = prefix === 'k12'
+          ? '<strong>Correct!</strong> Because the drone is stationary (zero acceleration), upward rotor lift and downward gravity are balanced (net force = 0 N).'
+          : '<strong>Correct!</strong> Navigating via a trusted bookmark avoids credential-harvesting links hidden behind "Cancel" buttons.';
+      } else {
+        box.className = 'p-4 rounded-xl text-sm bg-rose-50 border border-rose-300 text-rose-900';
+        box.innerHTML = '<strong>Not quite.</strong> Review the core rule in Step 1 and try selecting the safest option again.';
+      }
+    }
+  </script>
   
   <!-- MODAL 1: 3D Branched Scenario -->
   <div id="modal-1" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
